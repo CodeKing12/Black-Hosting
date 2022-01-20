@@ -19,6 +19,27 @@ header {
     background-position: right;*/
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px
+}
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #01358D;
+}
+::selection {
+    background-color: #01358D;
+    color: #fff
+}
+-webkit-::selection {
+    background-color: #01358D;
+    color: #fff
+}
+::-moz-selection {
+    background-color: #01358D;
+    color: #fff
+}
+
 .logo h3 {
     font-family: 'Lobster', cursive;
     color: white;
@@ -275,19 +296,19 @@ header {
     margin-bottom: 20px !important;
 }
 
-.single-pricing:hover {
+.active-price:hover, .active-price {
     background-color: #01358D;
     color: white;
     transform: scale(1.065);
 }
 
-.single-pricing:hover .price {
-    color: white;
+.active-price:hover .price, .active-price .price {
+    color: white !important;
 }
 
-.single-pricing:hover .title {
-    color: white;
-    font-weight: bolder;
+.active-price:hover .title, .active-price .title {
+    color: white !important;
+    font-weight: bolder !important;
 }
 
 .single-pricing:hover .buy-btn {

@@ -9,7 +9,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Black Hosting | Home</title>
     <script>
-
+        let all_prices = document.getElementsByClassName("single-pricing");
+        function priceColoring(hovered) {
+            for (let a=0; a < all_prices.length; a++) {
+                all_prices[a].classList.remove("active-price")
+                hovered.classList.add("active-price")
+            }
+        }
+        function backToDefault() {
+            let priceDefault = document.getElementById("default-price")
+            for (let a=0; a < all_prices.length; a++) {
+                all_prices[a].classList.remove("active-price")
+                priceDefault.classList.add("active-price")
+            }
+        }
+    </script>
+    <script>
         (function() {
             var elements;
             var windowHeight;
@@ -437,51 +452,51 @@
         <h2 class="scroll-show animate__animated animate__backInDown text-center mb-5 pb-3 fw-bolder price-head">Our <span>Prices</span></h2>
         <div id="all-prices" class="row no-gutters justify-content-center px-5">
             <div class="scroll-show animate__animated price1-hidden price-cont mb-5 col-lg-4 col-sm-6">
-                <div class="single-pricing text-center">
+                <div onmouseout="backToDefault()" onmouseover="priceColoring(this)" class="single-pricing text-center">
                     <h6 class="title">INDIVIDUAL</h6>
                     <div class="thumb">
                         <img src="images/undraw_personal_website_re_c8dv.svg" alt="pricing">
                     </div>
                     <h3 class="price">₦50000<br><span style="margin-left: unset;">per Month</span></h3>
                     <ul>
-                        <li>1000 Messages per month</li>
-                        <li>2 GB file storage</li>
-                        <li>20 Projects per month</li>
-                        <li>Premium support</li>
+                        <li>40GB Bandwidth Per Month</li>
+                        <li>20GB File Storage</li>
+                        <li>4 Cores</li>
+                        <li>Basic Support</li>
                     </ul>
-                    <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Get Start</a>
+                    <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Purchase</a>
                 </div>
             </div>
             <div class="scroll-show animate__animated price2-hidden price-cont mb-5 col-lg-4 col-sm-6">
-                <div class="single-pricing text-center single-pricing-active">
+                <div onmouseout="backToDefault()" onmouseover="priceColoring(this)" id="default-price" class="active-price single-pricing text-center single-pricing-active">
                     <h6 class="title">SMALL BUSINESS</h6>
                     <div class="thumb">
                         <img src="images/undraw_business_shop_qw-5-t.svg" alt="pricing">
                     </div>
                     <h3 class="price">₦540000 <br><span>per Year</span></h3>
                     <ul>
-                        <li>1000 Messages per month</li>
-                        <li>2 GB file storage</li>
-                        <li>20 Projects per month</li>
-                        <li>Premium support</li>
+                        <li>100GB Monthly Bandwidth</li>
+                        <li>50GB SSD file storage</li>
+                        <li>12 Cores</li>
+                        <li>Premium Support</li>
                     </ul>
-                    <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Get Start</a>
+                    <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Purchase</a>
                 </div>
             </div>
             <div class="scroll-show animate__animated price3-hidden price-cont mb-5  col-lg-4 col-sm-6">
-                <div class="single-pricing text-center">
+                <div onmouseout="backToDefault()" onmouseover="priceColoring(this)" class="single-pricing text-center">
                     <h6 class="title">MEDIUM COMPANY</h6>
                     <div class="thumb">
                         <img src="images/undraw_server_cluster_jwwq.svg" alt="pricing">
                     </div>
                     <h3 class="price third-price">₦5000000 <span><br>per Decade</span></h3>
                     <ul>
-                        <li>1000 Messages per month</li>
-                        <li>2 GB file storage</li>
-                        <li>20 Projects per month</li>
-                        <li>Premium support</li>
+                        <li>Unlimited Bandwidth</li>
+                        <li>Fully Customizable Specs</li>
+                        <li>Remote Direct Access</li>
+                        <li>Premium Support and Discounts</li>
                     </ul>
-                    <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Get Start</a>
+                    <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Purchase</a>
                 </div>
             </div>
         </div>
