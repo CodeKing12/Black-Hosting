@@ -6,7 +6,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="index.css" type="text/css" rel="stylesheet">
     <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Black Hosting | Home</title>
+    <script>
+
+        (function() {
+            var elements;
+            var windowHeight;
+
+            function init() {
+                elements = document.getElementsByClassName('hidden');
+                about = document.getElementsByClassName('about-hidden');
+                whySect = document.getElementsByClassName('why-hidden');
+                price1 = document.getElementsByClassName('price1-hidden');
+                price2 = document.getElementsByClassName('price2-hidden');
+                price3 = document.getElementsByClassName('price3-hidden');
+                windowHeight = window.innerHeight;
+                console.log(windowHeight)
+            }
+
+            function checkPosition() {
+                for (var i = 0; i < elements.length; i++) {
+                    var element = elements[i];
+                    var positionFromTop = elements[i].getBoundingClientRect().top;
+                    if (positionFromTop - windowHeight <= -(13/100 * windowHeight)) {
+                        element.classList.add('animate__backInLeft');
+                        element.classList.remove('hidden');
+                    }
+                    // if (positionFromTop - windowHeight >= -(5/100 * windowHeight)) {
+                    //     console.log("Kepp")
+                    // }
+                    // console.log(positionFromTop - windowHeight < element.clientHeight)
+                    // console.log(element.clientHeight, positionFromTop)
+                    // if ((positionFromTop - windowHeight > 1) || (positionFromTop < 0)) {
+                    //     element.classList.replace('animate__backInLeft', 'hidden');
+                    // }
+
+                    // if (Math.abs(positionFromTop) > Math.abs(element.clientHeight)) {
+                    //     console.log(positionFromTop, element.clientHeight)
+                    // }
+                }
+                for (var i = 0; i < about.length; i++) {
+                        var abment = about[i];
+                        var positionFromTop = about[i].getBoundingClientRect().top;
+                        if (positionFromTop - windowHeight <= -(13/100 * windowHeight)) {
+                            abment.classList.add('animate__backInRight');
+                            abment.classList.remove('about-hidden');
+                        }
+                }
+                
+                for (var i = 0; i < whySect.length; i++) {
+                        var whyment = whySect[i];
+                        var positionFromTop = whySect[i].getBoundingClientRect().top;
+                        if (positionFromTop - windowHeight <= -(15/100 * windowHeight)) {
+                            whyment.classList.add('animate__bounceInLeft');
+                            whyment.classList.remove('why-hidden');
+                        }
+                }
+
+                for (var i = 0; i < price1.length; i++) {
+                        var price1elem = price1[i];
+                        var positionFromTop = price1[i].getBoundingClientRect().top;
+                        if (positionFromTop - windowHeight <= -(15/100 * windowHeight)) {
+                            price1elem.classList.add('animate__fadeInLeft');
+                            price1elem.classList.remove('price1-hidden');
+                        }
+                }
+
+                for (var i = 0; i < price2.length; i++) {
+                        var price2elem = price2[i];
+                        var positionFromTop = price2[i].getBoundingClientRect().top;
+                        if (positionFromTop - windowHeight <= -(15/100 * windowHeight)) {
+                            price2elem.classList.add('animate__fadeInUp');
+                            price2elem.classList.remove('price2-hidden');
+                        }
+                }
+
+                for (var i = 0; i < price3.length; i++) {
+                        var price3elem = price3[i];
+                        var positionFromTop = price3[i].getBoundingClientRect().top;
+                        if (positionFromTop - windowHeight <= -(15/100 * windowHeight)) {
+                            price3elem.classList.add('animate__fadeInRight');
+                            price3elem.classList.remove('price3-hidden');
+                        }
+                }
+            }
+
+            window.addEventListener('scroll', checkPosition);
+            window.addEventListener('resize', init);
+
+            init();
+            checkPosition();
+        })();
+        
+        // function isElementInViewport(elem) {
+        //     var $elem = $(elem);
+
+        //     // Get the scroll position of the page.
+        //     var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+        //     var viewportTop = $(scrollElem).scrollTop();
+        //     var viewportBottom = viewportTop + $(window).height();
+
+        //     // Get the position of the element on the page.
+        //     var elemTop = Math.round( $elem.offset().top );
+        //     var elemBottom = elemTop + $elem.height();
+
+        //     return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
+        // }
+
+        // // Check if it's time to start the animation.
+        // function checkAnimation() {
+        //     var $elem = $('.scroll-show');
+
+        //     // If the animation has already been started
+        //     if ($elem.hasClass('animate__backInUp')) return;
+
+        //     if (isElementInViewport($elem)) {
+        //         // Start the animation
+        //         $elem.css("opacity", "1")
+        //         $elem.addClass('animate__backInUp');
+        //     } else {
+        //         $elem.removeClass('animate__backInUp');
+        //     }
+        // }
+
+        // Capture scroll events
+        // $(window).scroll(function(){
+        //     checkAnimation();
+        // });
+
+        // const scrollElements = document.getElementsByClassName("scroll-show");
+        // const animationList = [
+        //     "animate__backInUp",
+        //     "animate__backInRight",
+        //     "animate__bounceInLeft",
+        //     "animate__backInDown",
+        //     "animate__fadeInLeft",
+        //     "animate__fadeInUp"
+        // ]
+        // console.log(scrollElements);
+        // for (let i=0; i < scrollElements.length; i++) {
+        //     scrollElements[i].style.display = "none"
+        // }
+        
+        // const elementInView = (el, scrollOffset = 0) => {
+        //   const elementTop = el.getBoundingClientRect().top;
+
+        //     return (
+        //         elementTop <= ((window.innerHeight || document.documentElement.clientHeight) - scrollOffset)
+        //     );
+        // };
+
+        // const displayScrollElement = (element) => {
+        //     let elClass = animationList[Math.floor(Math.random() * animationList.length)]
+        //     element.classList.add(elClass);
+        //     console.log(elClass);
+        // };
+
+        // const handleScrollAnimation = () => {
+        //    for (let b=0; b < scrollElements.length; b++) {
+        //         let el = scrollElements[b]
+        //         if (elementInView(el, 90)) {
+        //             el.style.opacity = 1
+        //             displayScrollElement(el);
+        //             break
+        //         }
+        //     }
+        // }
+
+        // window.addEventListener('scroll', () => {
+        //     handleScrollAnimation();
+        // })
+    </script>
 </head>
 <body>
     <header class="container-fluid">
@@ -56,7 +227,7 @@
     <section id="about" class="about-us pt-5 mt-2 container">
         <h2 class="text-center mb-3 fw-bolder"><span>About</span> Us</h2>
         <div class="row pt-3">
-            <div class="col-md-5 order-2 order-md-1 me-5 mx-md-3 milestones d-flex flex-column justify-content-center py-4 ">
+            <div class="scroll-show animate__animated hidden col-md-5 order-2 order-md-1 me-5 mx-md-3 milestones d-flex flex-column justify-content-center py-4 ">
                 <h3 class="text-center mb-3">Milestones</h3>
                 <ul class="ps-0 mt-2 align-self-center">
                     <li class="mb-3 d-flex">
@@ -102,7 +273,7 @@
                 <img class="col-12" src="images/jumbo-icon.png">
                 <img class="col-12" src="images/PngItem_6397796.png">
             </div> -->
-            <div class="more-about order-1 order-md-2 col-md-6 d-flex mb-4 mb-md-0 align-items-center">
+            <div class="scroll-show animate__animated about-hidden more-about order-1 order-md-2 col-md-6 d-flex mb-4 mb-md-0 align-items-center">
                 <p class="info">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam efficitur lobortis est, non tristique nisi condimentum non. Nulla sed pellentesque magna, in interdum diam. Donec venenatis magna nec dignissim maximus.
                     <br><br>
@@ -166,7 +337,7 @@
     <section id="why" class="why-us pt-5 pb-5 my-5 container">
         <div class="row d-flex justify-content-center">
             <h2 class="text-center mb-5 fw-bolder"><span>Why</span> Us</h2>
-            <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
+            <div id="carouselExampleInterval" class="scroll-show animate__animated why-hidden carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner row d-flex">
                     <div class="carousel-item active">
                         <div class="why-card def-blue mb-3 col-md-5 p-4 d-inline-flex me-md-3 flex-column">
@@ -263,9 +434,9 @@
     </section>
 
     <section id="pricing" class="pricing pt-5 mt-5">
-        <h2 class="text-center mb-5 pb-3 fw-bolder price-head">Our <span>Prices</span></h2>
+        <h2 class="scroll-show animate__animated animate__backInDown text-center mb-5 pb-3 fw-bolder price-head">Our <span>Prices</span></h2>
         <div id="all-prices" class="row no-gutters justify-content-center px-5">
-            <div class="price-cont mb-5 col-lg-4 col-sm-6">
+            <div class="scroll-show animate__animated price1-hidden price-cont mb-5 col-lg-4 col-sm-6">
                 <div class="single-pricing text-center">
                     <h6 class="title">INDIVIDUAL</h6>
                     <div class="thumb">
@@ -281,7 +452,7 @@
                     <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Get Start</a>
                 </div>
             </div>
-            <div class="price-cont mb-5  col-lg-4 col-sm-6">
+            <div class="scroll-show animate__animated price2-hidden price-cont mb-5 col-lg-4 col-sm-6">
                 <div class="single-pricing text-center single-pricing-active">
                     <h6 class="title">SMALL BUSINESS</h6>
                     <div class="thumb">
@@ -297,7 +468,7 @@
                     <a class="buy-btn btn btn-white btn-rounded" href="home04.html#">Get Start</a>
                 </div>
             </div>
-            <div class="price-cont mb-5  col-lg-4 col-sm-6">
+            <div class="scroll-show animate__animated price3-hidden price-cont mb-5  col-lg-4 col-sm-6">
                 <div class="single-pricing text-center">
                     <h6 class="title">MEDIUM COMPANY</h6>
                     <div class="thumb">
